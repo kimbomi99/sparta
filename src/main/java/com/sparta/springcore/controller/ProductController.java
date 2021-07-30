@@ -33,9 +33,12 @@ public class ProductController {
             @RequestParam("isAsc") boolean isAsc,
             @AuthenticationPrincipal UserDetailsImpl userDetails
     ) {
-        Long userId = userDetails.getUser().getId();
-        page = page - 1;
-        return productService.getProducts(userId, page , size, sortBy, isAsc);
+
+            //핵심기능
+            Long userId = userDetails.getUser().getId();
+            page = page - 1;
+            return productService.getProducts(userId, page , size, sortBy, isAsc);
+            //부가기능
     }
 
     // 신규 상품 등록
